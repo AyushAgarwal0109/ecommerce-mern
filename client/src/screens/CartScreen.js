@@ -32,12 +32,11 @@ const CartScreen = () => {
   }, [dispatch, productId, qty]);
 
   const removeFromCartHandler = (id) => {
-    console.log('remove');
-    // dispatch(removeFromCart(id));
+    dispatch(removeFromCart(id));
   };
 
   const checkoutHandler = () => {
-    history(`/login?redirect=shipping`);
+    history('/login?redirect=shipping');
   };
 
   return (
@@ -81,7 +80,7 @@ const CartScreen = () => {
                     <Button
                       type='button'
                       variant='light'
-                      onClick={removeFromCartHandler(item.product)}
+                      onClick={() => removeFromCartHandler(item.product)}
                     >
                       <i className='fas fa-trash'></i>
                     </Button>
@@ -108,7 +107,7 @@ const CartScreen = () => {
             <ListGroup.Item>
               <Button
                 type='button'
-                className='btn-block'
+                className='w-100'
                 disabled={cartItems.length === 0}
                 onClick={checkoutHandler}
               >
